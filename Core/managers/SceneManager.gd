@@ -1,7 +1,13 @@
 extends Manager
 class_name SceneManager
-##cambia de escena, recarga la escena, sale del jeugo, registra el nivel en GAme,
-##notifica cmabios mediante eventBUs
+## --------------------------------------------------
+## SceneManager
+##
+## Responsable de:
+## - Cambiar escenas
+## - Recargar escenas
+## - Cerrar el juego
+## --------------------------------------------------
 
 func initialize() -> void:
 	pass

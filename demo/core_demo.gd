@@ -12,6 +12,19 @@ func _ready():
 	Gameload.level_registered.connect(_on_level_registered)
 	var fake_level := Node.new()
 	Gameload.register_level(fake_level)
+	
+	var data := {
+		"player": {
+			"name": "32teban",
+			"health": 100,
+			"coins": 42
+		},
+		"level": 2
+	}
+	Gameload.save_game("player",data)
+	print("¿Existe partida?: ", Gameload.has_save("player"))
+	var loaded := Gameload.load_game("player")
+	print(loaded)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

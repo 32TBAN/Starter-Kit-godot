@@ -27,7 +27,3 @@ func toggle() -> void:
 		resume()
 	else:
 		pause()
-
-
-func is_paused() -> bool:
-	return get_tree().paused

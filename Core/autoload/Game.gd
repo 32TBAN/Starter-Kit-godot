@@ -23,19 +23,26 @@ var current_camera: Camera2D = null
 ##managers
 var scene_manager: SceneManager
 var pause_manager: PauseManager
-var save_manager: Node = null
+var save_manager: SaveManager
 var audio_manager: Node = null
 var settings_manager: Node = null
+var _managers: Array[Manager] = [] ##se utilizara mas adelante en versiones futuras.
 
 func _ready() -> void:
 	scene_manager = SceneManager.new()
-	pause_manager = PauseManager.new()
-	
-	add_child(scene_manager)
-	add_child(pause_manager)
-	
-	pause_manager.initialize()
+	_register_manager(scene_manager)
 
+	pause_manager = PauseManager.new()
+	_register_manager(pause_manager)
+
+	save_manager = SaveManager.new()
+	_register_manager(save_manager)
+
+func _register_manager(manager: Manager) -> void:
+	_managers.append(manager)
+	add_child(manager)
+	manager.initialize()
+	
 func set_state(new_state: State) -> void:
 	if state == new_state:
 		return
@@ -73,3 +80,16 @@ func toggle_pause() -> void:
 
 func is_paused() -> bool:
 	return state == State.PAUSED
+
+##SaveManager
+func save_game(slot: String,data: Dictionary) -> bool:
+	return save_manager.save(slot, data)
+
+func load_game(slot: String) -> Dictionary:
+	return save_manager.load(slot)
+
+func has_save(slot:String) -> bool:
+	return save_manager.has_save(slot)
+
+func delete_save(slot:String) -> bool:
+	return save_manager.delete_save(slot)
