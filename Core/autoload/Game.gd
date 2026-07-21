@@ -24,6 +24,7 @@ var current_camera: Camera2D = null
 var scene_manager: SceneManager
 var pause_manager: PauseManager
 var save_manager: SaveManager
+var ui_manager: UIManager
 var audio_manager: Node = null
 var settings_manager: Node = null
 var _managers: Array[Manager] = [] ##se utilizara mas adelante en versiones futuras.
@@ -37,6 +38,9 @@ func _ready() -> void:
 
 	save_manager = SaveManager.new()
 	_register_manager(save_manager)
+	
+	ui_manager = UIManager.new()
+	_register_manager(ui_manager)
 
 func _register_manager(manager: Manager) -> void:
 	_managers.append(manager)
@@ -93,3 +97,12 @@ func has_save(slot:String) -> bool:
 
 func delete_save(slot:String) -> bool:
 	return save_manager.delete_save(slot)
+##manager UI
+func show_screen(id: String) -> void:
+	ui_manager.show(id)
+
+func hide_screen(id: String) -> void:
+	ui_manager.hide(id)
+
+func toggle_screen(id: String) -> void:
+	ui_manager.toggle(id)

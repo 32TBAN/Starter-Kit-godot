@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bw0am8lbwikdk"]
+
+[ext_resource type="Script" uid="uid://cc1aoyfyawutw" path="res://UI/Core/UIroot.gd" id="1_yqlmb"]
+
+[node name="UiRoot" type="Control" unique_id=109765951]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_yqlmb")
+
+[node name="OverlayLayer" type="Control" parent="." unique_id=186417004]
+anchors_preset = 0
+
+[node name="HUDLayer" type="Control" parent="." unique_id=456474183]
+anchors_preset = 0
+
+[node name="MenuLayer" type="Control" parent="." unique_id=720135907]
+anchors_preset = 0
+
+[node name="PopupLayer" type="Control" parent="." unique_id=1506699874]
+anchors_preset = 0

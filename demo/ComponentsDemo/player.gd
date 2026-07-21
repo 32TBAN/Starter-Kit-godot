@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var movement: MovementComponent = $MovementComponent
 @onready var health: HealthComponent = $HealthComponent
+@onready var camera: CameraComponent = $CameraComponent
 
 func _ready() -> void:
 	movement.movement_started.connect(_on_started)
@@ -15,6 +16,7 @@ func _ready() -> void:
 		func():
 			print("Jugador muerto")
 	)
+	camera.initialize()
 
 func _physics_process(_delta: float) -> void:
 	var direction := Input.get_vector(

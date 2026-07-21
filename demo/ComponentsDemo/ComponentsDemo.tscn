@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b83a8yp82aiqc" path="res://icon.svg" id="2_uq6tw"]
 [ext_resource type="Script" uid="uid://dja2fuwoqni13" path="res://Components/MovementComponent.gd" id="3_8ojur"]
 [ext_resource type="Script" uid="uid://cag1boc17qmt0" path="res://Components/HealthComponent.gd" id="4_uq6tw"]
+[ext_resource type="Script" uid="uid://c5en7qy6jtfeo" path="res://Components/CameraComponent.gd" id="5_8ojur"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b1a4e"]
 radius = 18.0
@@ -21,8 +22,14 @@ shape = SubResource("CapsuleShape2D_b1a4e")
 position = Vector2(0, -1)
 texture = ExtResource("2_uq6tw")
 
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1427528917]
+
 [node name="MovementComponent" type="Node2D" parent="Player" unique_id=1048633229]
 script = ExtResource("3_8ojur")
 
 [node name="HealthComponent" type="Node2D" parent="Player" unique_id=51332282]
 script = ExtResource("4_uq6tw")
+
+[node name="CameraComponent" type="Node2D" parent="Player" unique_id=1611552]
+script = ExtResource("5_8ojur")
+camera_path = NodePath("../Camera2D")
