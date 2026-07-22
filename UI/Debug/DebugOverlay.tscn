@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dfuwm05pjp13c"]
+
+[ext_resource type="Script" uid="uid://do28hl08y347s" path="res://UI/Debug/DebugOverlay.gd" id="1_w6vjw"]
+
+[node name="DebugOverlay" type="Control" unique_id=1870986623]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w6vjw")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=520964747]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=156712277]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/PanelContainer" unique_id=1785716342]
+layout_mode = 2
+fit_content = true
+scroll_active = false

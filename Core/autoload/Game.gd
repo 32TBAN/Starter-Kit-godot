@@ -25,6 +25,7 @@ var scene_manager: SceneManager
 var pause_manager: PauseManager
 var save_manager: SaveManager
 var ui_manager: UIManager
+var debug_manager: DebugManager
 var audio_manager: Node = null
 var settings_manager: Node = null
 var _managers: Array[Manager] = [] ##se utilizara mas adelante en versiones futuras.
@@ -41,7 +42,13 @@ func _ready() -> void:
 	
 	ui_manager = UIManager.new()
 	_register_manager(ui_manager)
+	
+	debug_manager = DebugManager.new()
+	_register_manager(debug_manager)
 
+func get_state_name() -> String:
+	return State.keys()[state]
+	
 func _register_manager(manager: Manager) -> void:
 	_managers.append(manager)
 	add_child(manager)
@@ -106,3 +113,15 @@ func hide_screen(id: String) -> void:
 
 func toggle_screen(id: String) -> void:
 	ui_manager.toggle(id)
+##Debug manager
+func debug_set(key: String, value) -> void:
+	debug_manager.set_value(key, value)
+
+func debug_get(key: String, default_value = null):
+	return debug_manager.get_value(key, default_value)
+
+func debug_remove(key: String) -> void:
+	debug_manager.remove_value(key)
+
+func debug_clear() -> void:
+	debug_manager.clear()
