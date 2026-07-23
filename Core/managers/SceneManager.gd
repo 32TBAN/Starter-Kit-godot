@@ -21,22 +21,12 @@ func update_current_scene() -> void:
 		return
 	Gameload.register_level(scene)
 	
-func change_scene(scene_path: String) -> void:
-	if scene_path.is_empty():
-		push_error("SceneManager: La ruta de la escena está vacía.")
+func change_scene_packed(scene: PackedScene) -> void:
+	if scene == null:
+		push_error("SceneManager: Escena nula.")
 		return
-	var error := get_tree().change_scene_to_file(scene_path)
-	if error != OK:
-		push_error("SceneManager: No se pudo cargar la escena: %s" % scene_path)
-		return
-	EventBusLoad.scene_changed.emit(scene_path)
-
-func reload_scene() -> void:
-	var current_scene := get_tree().current_scene
-	if current_scene == null:
-		push_error("SceneManager: No existe una escena cargada.")
-		return
-	change_scene(current_scene.scene_file_path)
+	get_tree().change_scene_to_packed(scene)
+	EventBusLoad.scene_changed.emit(scene.resource_path)
 
 func quit_game() -> void:
 	get_tree().quit()

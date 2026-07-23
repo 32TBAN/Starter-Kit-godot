@@ -9,7 +9,7 @@ signal game_resumed
 signal game_over
 
 # Scene
-signal scene_changed(scene_path: String)
+signal scene_changed(scene_path: PackedScene)
 
 # Player
 signal player_spawned(player: Node)

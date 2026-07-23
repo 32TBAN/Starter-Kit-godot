@@ -57,10 +57,10 @@ func _register_manager(manager: Manager) -> void:
 func set_state(new_state: State) -> void:
 	if state == new_state:
 		return
-
-	var old_state := state
+	var old := state
 	state = new_state
-	state_changed.emit(old_state, new_state)
+	print("[Game] %s -> %s" % [State.keys()[old], get_state_name()])
+	state_changed.emit(old, state)
 	
 func register_player(player_node: Node) -> void:
 	player = player_node
@@ -71,8 +71,10 @@ func register_level(level_node: Node) -> void:
 	current_level = level_node
 	level_registered.emit(current_level)
 
-func change_scene(scene_path: String) -> void:
-	scene_manager.change_scene(scene_path)
+func change_scene_packed(scene_path: PackedScene) -> void:
+	set_state(State.LOADING)
+	scene_manager.change_scene_packed(scene_path)
+	set_state(State.PLAYING)
 
 func reload_scene() -> void:
 	scene_manager.reload_scene()

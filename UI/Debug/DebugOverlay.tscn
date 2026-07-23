@@ -13,8 +13,6 @@ script = ExtResource("1_w6vjw")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=520964747]
 layout_mode = 1
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=156712277]
 layout_mode = 2
@@ -23,3 +21,4 @@ layout_mode = 2
 layout_mode = 2
 fit_content = true
 scroll_active = false
+autowrap_mode = 0

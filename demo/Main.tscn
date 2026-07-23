@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c5dypajsho7tb"]
+
+[ext_resource type="PackedScene" uid="uid://bw0am8lbwikdk" path="res://UI/Core/UIRoot.tscn" id="1_16n56"]
+
+[node name="Main" type="Node2D" unique_id=1829677733]
+
+[node name="UiRoot" parent="." unique_id=800767590 instance=ExtResource("1_16n56")]

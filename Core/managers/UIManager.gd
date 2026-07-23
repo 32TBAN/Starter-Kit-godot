@@ -26,7 +26,6 @@ func register_screen(id: String, screen: Control) -> void:
 	if _screens.has(id):
 		push_warning("UIManager: '%s' ya estaba registrado." % id)
 	_screens[id] = screen
-	screen.visible = false
 
 	screen_registered.emit(id)
 
@@ -75,3 +74,7 @@ func get_screen(id: String) -> Control:
 		push_warning("UIManager: '%s' no registrado." % id)
 		return null
 	return _screens[id]
+
+func show_exclusive(id: String) -> void:
+	hide_all()
+	show(id)

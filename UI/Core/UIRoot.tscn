@@ -1,20 +1,43 @@
 [gd_scene format=3 uid="uid://bw0am8lbwikdk"]
 
 [ext_resource type="Script" uid="uid://cc1aoyfyawutw" path="res://UI/Core/UIroot.gd" id="1_yqlmb"]
+[ext_resource type="PackedScene" uid="uid://dhqs2afl6m0lt" path="res://UI/Menus/MainMenu.tscn" id="2_5frrj"]
+[ext_resource type="PackedScene" uid="uid://dfuwm05pjp13c" path="res://UI/Debug/DebugOverlay.tscn" id="3_oujqo"]
+[ext_resource type="Theme" uid="uid://dxprdb4tw6it8" path="res://UI/Theme/DefaultTheme.tres" id="4_nqnwu"]
 
-[node name="UiRoot" type="Control" unique_id=109765951]
-layout_mode = 3
-anchors_preset = 0
+[node name="UiRoot" type="CanvasLayer" unique_id=800767590]
 script = ExtResource("1_yqlmb")
 
-[node name="OverlayLayer" type="Control" parent="." unique_id=186417004]
-anchors_preset = 0
+[node name="MenuLayer" type="Control" parent="." unique_id=720135907]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="MainMenu" parent="MenuLayer" unique_id=93355392 instance=ExtResource("2_5frrj")]
+visible = true
+layout_mode = 1
 
 [node name="HUDLayer" type="Control" parent="." unique_id=456474183]
+layout_mode = 3
 anchors_preset = 0
 
-[node name="MenuLayer" type="Control" parent="." unique_id=720135907]
+[node name="OverlayLayer" type="Control" parent="." unique_id=186417004]
+layout_mode = 3
 anchors_preset = 0
+
+[node name="DebugOverlay" parent="OverlayLayer" unique_id=1870986623 instance=ExtResource("3_oujqo")]
+layout_mode = 1
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+theme = ExtResource("4_nqnwu")
 
 [node name="PopupLayer" type="Control" parent="." unique_id=1506699874]
+layout_mode = 3
 anchors_preset = 0

@@ -1,3 +1,59 @@
 [gd_scene format=3 uid="uid://dhqs2afl6m0lt"]
 
-[node name="MainMenu" type="Node2D" unique_id=424552327]
+[ext_resource type="Theme" uid="uid://dxprdb4tw6it8" path="res://UI/Theme/DefaultTheme.tres" id="1_oa788"]
+[ext_resource type="Script" uid="uid://cxsj7aw1xpe0s" path="res://UI/Menus/MainMenu.gd" id="2_gexx5"]
+[ext_resource type="PackedScene" uid="uid://h0ul7w2qen07" path="res://demo/ComponentsDemo/ComponentsDemo.tscn" id="3_0cgh2"]
+
+[node name="MainMenu" type="Control" unique_id=93355392]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("1_oa788")
+script = ExtResource("2_gexx5")
+first_level = ExtResource("3_0cgh2")
+screen_id = "main_menu"
+start_visible = true
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=243657927]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer" unique_id=1341722097]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer" unique_id=1156641697]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer" unique_id=2031863062]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Titulo"
+
+[node name="Button" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer" unique_id=2036459551]
+layout_mode = 2
+text = "Jugar"
+
+[node name="Button2" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer" unique_id=1849505997]
+layout_mode = 2
+text = "Opciones"
+
+[node name="Button3" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer" unique_id=1325024126]
+layout_mode = 2
+text = "Creditos"
+
+[node name="Button4" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer" unique_id=412569592]
+layout_mode = 2
+text = "Salir"
+
+[connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer/Button" to="." method="_on_play_pressed"]

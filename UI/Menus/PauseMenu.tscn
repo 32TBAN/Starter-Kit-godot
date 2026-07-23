@@ -1,3 +1,28 @@
 [gd_scene format=3 uid="uid://wspr6a3ub0em"]
 
-[node name="PauseMenu" type="Node2D" unique_id=1044596112]
+[node name="PauseMenu" type="Control" unique_id=2008326989]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2063169701]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer" unique_id=2094944992]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=62072262]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1430724350]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1614378763]
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1026216813]
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="MarginContainer/VBoxContainer" unique_id=436062046]
+layout_mode = 2
